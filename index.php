@@ -322,7 +322,7 @@
 	<div class="tracker"></div>
 	<script type="text/javascript">
 		var pageTitle = document.title;
-		gLang = 'sc';
+		gLang = 'tc'; // sc or tc
 		
 		$(document).ready(init_fn);
 
