@@ -1,0 +1,316 @@
+@import "compass/css3";
+
+/****************** Googlemap Store ***********************/
+.footerWrapper{
+	margin: 0 auto;
+}
+
+.mapWrapper{
+	position: relative;
+	
+}
+
+.locationFilterBar{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	right: 20px;
+	
+	.mobile &{
+		top: 70px;
+	}
+	
+	.pageCatItem{
+		margin-bottom: 10px;
+
+		.label {
+			letter-spacing: 1.5px;
+		}
+	}
+	
+	.selectricItems .disabled{
+		display: none;
+	}
+	
+	.btnBackToMap{
+		color: #000;
+		
+		.desktop &,
+		.tablet &{
+			display: none;
+		}
+		.mobile &{
+			display: inline-block;
+			margin: 10px 0;
+		}
+	}
+
+	.commonBtn {
+		display: block;
+		text-align: center;
+		margin: 20px auto;
+	}
+}
+
+.mapCanvas{
+	position: relative;
+	width: 100%;
+	height: 800px;
+	
+	&.show{
+		display: block;
+	}
+	
+	.labelPin{
+		color: #fff;
+		font-size: 20px;
+		text-align: center;
+		width: 56px;
+		line-height: 1em;
+		white-space: nowrap;
+	}
+}
+
+.shopListContainer{
+	position: absolute;
+	top:0;
+	bottom: 0;
+	background-color: #fff;
+	z-index: 1;
+	@include transition(left 0.3s);
+	
+	.desktop &,
+	.tablet &{
+		left: -370px;
+		width: 330px;
+		padding: 120px 20px 20px;
+	}
+	.mobile &{
+		position: fixed;
+		width: 100%;
+		left: -100%;
+		padding: 200px 0 20px;
+	}
+	
+	&.active{
+		left: 0;
+	}
+	
+	&.show{
+		display: block;
+	}
+	
+	.btnToggleMapList{
+		position: absolute;
+		top: 150px;
+		right: -50px;
+		background-color: #000;
+		font-size: 20px;
+		width: 50px;
+		height: 50px;
+		text-align: center;
+
+		&:before{
+			color: #fff;
+			line-height: 50px;
+			@include transition(transform 0.3s);
+		}
+	}
+	&.active .btnToggleMapList:before{
+		@include transform(rotate(180deg));
+	}
+	
+	.shopListWrapper{
+		height:100%;
+		.mobile &{
+			padding: 0 20px 0;
+		}
+	}
+	.shopList{
+		position: relative;
+		height:100%;
+		overflow: auto;
+	}
+
+	.locTitle{
+		position: relative;
+		display: none;
+		color: #000;
+		font-size: 20px;
+		line-height: 1.3em;
+		padding-bottom: 10px;
+		margin: 30px 0 20px;
+		
+		&:after{
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 20px;
+			height: 1px;
+			background-color: #000;
+		}
+		
+		&.show{
+			display: block;
+		}
+	}
+	
+	.shopItem{
+		display: none;
+		position: relative;
+		margin-bottom: 40px;
+		
+		&.show{
+			display: block;
+		}
+		
+		&[data-region="china"].show{
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+			margin-bottom: 10px;
+			.shopName{
+				&:before{
+					content: '•';
+					margin-right: 10px;
+				}
+				font-size: 14px;
+				margin: 0;
+			}
+		}
+		
+		.pinLink{
+			position: relative;
+			display: block;
+			color: #000;
+			
+			.mobile &{
+				padding-right:20px;
+			}
+		}
+		.shopDetails{
+			display: block;
+			position: relative;
+			
+			.shopName{
+				display: block;
+				font-size: 18px;
+				color: #000;
+				line-height: 1.3em;
+				margin-bottom: 10px;
+				
+				.mobile &{
+					font-size: 14px;
+				}
+			}
+			.shopAddress{
+				display: block;
+				line-height: 1.3em;
+				margin-bottom: 10px;
+			}
+		}
+		&[data-region="china"] .shopName{
+			.mobile &{
+				font-size: 14px;
+			}
+		}
+		.shopTel{
+			display: block;
+			line-height: 1.3em;
+			a{
+				color: #000;
+			}
+		}
+	}
+	
+}
+
+
+.norecords{
+	display: none;
+	position: relative;
+	font-size:21px;
+	padding:10px 0;
+	line-height: 1.2em;
+
+}
+
+.infoBox > img{
+	position: absolute !important;
+	right: 10px;
+	top: 10px;
+	width: 20px;
+	stroke: #fff;
+    fill: #fff;
+	z-index: 4;
+}
+
+.infobox{
+	position: relative;
+	width: 320px;
+	color: #fff;
+	
+	.thumb{
+		display: block;
+		width: 320px;
+		height: 200px;
+		
+		.mobile &{
+			display: none;
+		}
+	}
+	a{
+		color: #fff;
+	}
+	.boxInner{
+		padding:22px 22px 18px;
+		background: rgba(48, 48, 48, 0.9);
+	}
+	.shopName{
+		display: block;
+		font-size: 20px;
+		line-height: 1.5em;
+		margin-bottom: 10px;
+		overflow: hidden;
+   		text-overflow: ellipsis;
+   		white-space: nowrap;
+	}
+	.shopAddress{
+		font-size: 14px;
+		display: block;
+		line-height: 1.5em;
+	}
+	.shopTel{
+		display: block;
+		line-height: 1.5em;
+		
+		.mobile &{
+			padding-left:35px;
+		}
+	}
+	.infoboxBottom{
+		position: absolute;
+		left: -20px;
+		top: 50%;
+		margin-top: -15px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 15px 20px 15px 0;
+		border-color: transparent #303030 transparent transparent;
+		opacity: 0.9;
+	}
+}
+
+
+.baiduMap{
+	.infobox{
+		color: #000;
+	}
+	.BMap_Marker img{
+		width: 100%;
+		display: block;
+	}
+}
+
