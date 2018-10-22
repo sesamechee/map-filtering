@@ -13,6 +13,3 @@
 1. getNearest( navigator.geolocation )
 2. filter by region / district
 3. shop id
-
-# Preview Local Link
-<http://github.ds078.pacim.local/map-filtering>
